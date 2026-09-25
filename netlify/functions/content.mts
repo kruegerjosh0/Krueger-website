@@ -72,6 +72,8 @@ export default async (req: Request, _context: Context) => {
           if (dbSettings.phone) baseContent.settings.phone = dbSettings.phone;
           if (dbSettings.facebookUrl !== undefined) baseContent.settings.facebook_url = dbSettings.facebookUrl;
           if (dbSettings.footerText) baseContent.settings.footer_text = dbSettings.footerText;
+          if (dbSettings.heroPrimaryButton) baseContent.hero.primary_button = dbSettings.heroPrimaryButton;
+          if (dbSettings.heroDescription) baseContent.hero.description = dbSettings.heroDescription;
         }
 
         const dbCategories = await db

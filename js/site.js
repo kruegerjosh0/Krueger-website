@@ -58,8 +58,10 @@
         });
 
         document.querySelectorAll("[data-cms-tel]").forEach(el => {
-            const digits = String(lookup(data, el.dataset.cmsTel) || "").replace(/[^\d+]/g, "");
-            if (digits) el.href = `tel:${digits}`;
+            const phone = lookup(data, el.dataset.cmsTel);
+            if (phone && typeof phone === "string" && phone.trim()) {
+                el.href = `tel:${phone.trim()}`;
+            }
         });
 
         document.querySelectorAll("[data-cms-href]").forEach(el => {

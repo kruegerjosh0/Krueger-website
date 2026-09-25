@@ -166,7 +166,15 @@ header {
 textarea.form-control { height: 120px; resize: vertical; }
 
 /* FOOTER */
-footer { text-align: center; padding: 40px 20px; font-size: 0.85rem; color: #666; border-top: 1px solid #333; background: var(--bg);}
+footer { text-align: center; padding: 40px 20px; font-size: 0.85rem; color: #888; border-top: 1px solid #333; background: var(--bg);}
+.footer-address { color: #ddd; margin: 0 0 6px 0; font-size: 0.95rem; }
+.footer-phone { margin: 0 0 6px 0; font-size: 0.95rem; color: #aaa; }
+.footer-phone a { color: var(--primary); text-decoration: none; font-weight: 700; }
+.footer-phone a:hover { text-decoration: underline; }
+.footer-service-areas { color: #aaa; margin: 0 0 12px 0; font-size: 0.9rem; }
+.service-areas-bar { background: #161616; border-bottom: 1px solid #282828; border-top: 1px solid #282828; padding: 20px 20px; text-align: center; }
+.service-areas-title { color: var(--primary); font-weight: 900; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px; margin-bottom: 6px; }
+.service-areas-text { color: #cccccc; margin: 0; font-size: 0.95rem; font-weight: 600; }
 .admin-link { color: var(--primary); text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;}
 
 .empty-note { text-align: center; color: #888; border: 1px dashed #444; padding: 30px 20px; border-radius: 6px; }

@@ -32,7 +32,7 @@ collections:
         fields:
           - {label: "Logo", name: "logo", widget: "hidden"}
           - {label: "Business Name", name: "business_name", widget: "string", hint: "Shown next to the circular logo in the top-left header."}
-          - {label: "Phone Number", name: "phone", widget: "string", hint: "Used by the green Call Now button, e.g. 262-339-5822."}
+          - {label: "Phone Number", name: "phone", widget: "string", hint: "Used by the green Call Now button, e.g. 262-443-1199."}
           - {label: "Facebook Page Link", name: "facebook_url", widget: "string", required: false, hint: "Full link to your Facebook page. Leave blank to hide the Facebook button."}
           - {label: "Footer Text", name: "footer_text", widget: "hidden"}
 
