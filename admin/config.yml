@@ -6,23 +6,43 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
-  - name: "sections"
-    label: "Website Sections"
-    description: "Edit each part of the website. Changes go live about a minute after you click Publish."
+  - name: "logo"
+    label: "Website Logo"
+    description: "Upload your business logo. It displays as a small circle in the top-left corner of the header."
     editor: {preview: false}
     files:
       - file: "data/settings.json"
-        label: "Logo & Business Info"
-        name: "settings"
+        label: "Header Logo"
+        name: "logo_file"
         fields:
-          - {label: "Logo", name: "logo", widget: "image", required: false, hint: "Shown as a small circle next to your business name at the top of every page. A square picture works best."}
-          - {label: "Business Name", name: "business_name", widget: "string", hint: "Shown next to the logo."}
+          - {label: "Logo Image (Top-Left Circle)", name: "logo", widget: "image", required: false, hint: "Upload your logo here. It will be shown inside the small circle in the top-left corner of the header on all pages."}
+          - {label: "Business Name", name: "business_name", widget: "hidden"}
+          - {label: "Phone Number", name: "phone", widget: "hidden"}
+          - {label: "Facebook Page Link", name: "facebook_url", widget: "hidden"}
+          - {label: "Footer Text", name: "footer_text", widget: "hidden"}
+
+  - name: "business_info"
+    label: "Business & Contact Info"
+    description: "Edit your business name, phone number, and social media links."
+    editor: {preview: false}
+    files:
+      - file: "data/settings.json"
+        label: "Contact Details"
+        name: "contact_file"
+        fields:
+          - {label: "Logo", name: "logo", widget: "hidden"}
+          - {label: "Business Name", name: "business_name", widget: "string", hint: "Shown next to the circular logo in the top-left header."}
           - {label: "Phone Number", name: "phone", widget: "string", hint: "Used by the green Call Now button, e.g. 262-339-5822."}
           - {label: "Facebook Page Link", name: "facebook_url", widget: "string", required: false, hint: "Full link to your Facebook page. Leave blank to hide the Facebook button."}
-          - {label: "Footer Text", name: "footer_text", widget: "string", hint: "Small print at the bottom of every page."}
+          - {label: "Footer Text", name: "footer_text", widget: "hidden"}
 
+  - name: "banner"
+    label: "Top Banner (Hero)"
+    description: "Edit the main headline and buttons at the top of the homepage."
+    editor: {preview: false}
+    files:
       - file: "data/hero.json"
-        label: "Top Banner (Headline)"
+        label: "Headline & Buttons"
         name: "hero"
         fields:
           - {label: "Headline – White Line", name: "headline_white", widget: "string"}
@@ -31,8 +51,13 @@ collections:
           - {label: "Yellow Button Text", name: "primary_button", widget: "string", hint: "Jumps to the estimate form."}
           - {label: "Outline Button Text", name: "secondary_button", widget: "string", hint: "Opens the Photo Gallery page."}
 
+  - name: "services_section"
+    label: "Services (What We Do)"
+    description: "Edit the list of painting and repair services."
+    editor: {preview: false}
+    files:
       - file: "data/services.json"
-        label: "Services (What We Do)"
+        label: "Services List"
         name: "services"
         fields:
           - {label: "Section Heading", name: "heading", widget: "string"}
@@ -45,16 +70,9 @@ collections:
               - {label: "Service Name", name: "title", widget: "string"}
               - {label: "Description", name: "description", widget: "text"}
 
-      - file: "data/estimate.json"
-        label: "Estimate Form"
-        name: "estimate"
-        fields:
-          - {label: "Section Heading", name: "heading", widget: "string"}
-          - {label: "Submit Button Text", name: "button_text", widget: "string"}
-
   - name: "photos"
-    label: "Photo Gallery"
-    description: "Add, remove, and tag project photos. Categories marked 'Show on homepage' also appear in the Recent Projects section."
+    label: "Project Photos (Gallery)"
+    description: "Manage project photo categories, photos, and BEFORE / AFTER tags."
     editor: {preview: false}
     files:
       - file: "data/gallery.json"
@@ -62,7 +80,7 @@ collections:
         name: "gallery"
         fields:
           - {label: "Homepage Section Heading", name: "homepage_heading", widget: "string"}
-          - {label: "Homepage Button Text", name: "homepage_button", widget: "string", hint: "Button under Recent Projects that opens the full Photo Gallery page."}
+          - {label: "Homepage Button Text", name: "homepage_button", widget: "string"}
           - {label: "Gallery Page Heading", name: "page_heading", widget: "string"}
           - {label: "Gallery Page Intro", name: "page_intro", widget: "text", required: false}
           - label: "Categories"
@@ -80,5 +98,20 @@ collections:
                 summary: "{{fields.tag}} {{fields.image}}"
                 fields:
                   - {label: "Photo", name: "image", widget: "image"}
-                  - {label: "Tag", name: "tag", widget: "string", required: false, hint: "Optional yellow label shown on the photo, e.g. BEFORE, AFTER, DURING (MUD & TAPE)."}
-                  - {label: "Short Description", name: "alt", widget: "string", required: false, hint: "Optional. Describes the photo for Google and screen readers, e.g. 'White kitchen cabinets after repaint'."}
+                  - {label: "Tag", name: "tag", widget: "string", required: false, hint: "Optional label, e.g. BEFORE, AFTER, DURING (MUD & TAPE)."}
+                  - {label: "Short Description", name: "alt", widget: "string", required: false}
+
+  - name: "footer_section"
+    label: "Footer (Bottom of Page)"
+    description: "Edit copyright and small print at the bottom of the page."
+    editor: {preview: false}
+    files:
+      - file: "data/settings.json"
+        label: "Footer Text"
+        name: "footer_file"
+        fields:
+          - {label: "Logo", name: "logo", widget: "hidden"}
+          - {label: "Business Name", name: "business_name", widget: "hidden"}
+          - {label: "Phone Number", name: "phone", widget: "hidden"}
+          - {label: "Facebook Page Link", name: "facebook_url", widget: "hidden"}
+          - {label: "Footer Text", name: "footer_text", widget: "string", hint: "Small print at the bottom of every page."}

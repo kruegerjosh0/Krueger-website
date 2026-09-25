@@ -4,8 +4,38 @@
   "page_heading": "Photo Gallery",
   "page_intro": "Browse our painting, drywall, and deck projects from around Washington County.",
   "categories": [
-    { "title": "Kitchen Painting", "show_on_homepage": true, "photos": [] },
-    { "title": "Drywall & Wall Repair", "show_on_homepage": true, "photos": [] },
-    { "title": "Decks & Exterior Finishes", "show_on_homepage": true, "photos": [] }
+    {
+      "title": "Kitchen Painting",
+      "show_on_homepage": true,
+      "photos": [
+        {
+          "image": "/images/kitchen-cabinets.svg",
+          "tag": "AFTER",
+          "alt": "Cabinet paint refinishing with Sherwin-Williams enamel finish"
+        }
+      ]
+    },
+    {
+      "title": "Drywall & Wall Repair",
+      "show_on_homepage": true,
+      "photos": [
+        {
+          "image": "/images/drywall-repair.svg",
+          "tag": "DURING (MUD & TAPE)",
+          "alt": "Drywall compound taping and seamless plaster finish"
+        }
+      ]
+    },
+    {
+      "title": "Decks & Exterior Finishes",
+      "show_on_homepage": true,
+      "photos": [
+        {
+          "image": "/images/deck-stain.svg",
+          "tag": "AFTER (SEALED)",
+          "alt": "Exterior deck power washed and stained"
+        }
+      ]
+    }
   ]
 }

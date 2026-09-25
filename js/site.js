@@ -39,9 +39,21 @@
 
         document.querySelectorAll("[data-cms-src]").forEach(el => {
             const value = lookup(data, el.dataset.cmsSrc);
-            if (value) {
+            const circle = el.closest(".logo-circle");
+            const fallback = circle ? circle.querySelector(".logo-fallback") : null;
+
+            if (value && typeof value === "string" && value.trim()) {
                 el.src = value;
                 el.hidden = false;
+                if (fallback) fallback.hidden = true;
+
+                el.onerror = () => {
+                    el.hidden = true;
+                    if (fallback) fallback.hidden = false;
+                };
+            } else {
+                el.hidden = true;
+                if (fallback) fallback.hidden = false;
             }
         });
 
@@ -193,8 +205,23 @@
     }
 
     async function init() {
-        const results = await Promise.all(DATA_FILES.map(loadJSON));
-        const data = Object.fromEntries(DATA_FILES.map((name, i) => [name, results[i]]));
+        let data = null;
+        try {
+            const apiRes = await fetch("/api/content", { cache: "no-cache" });
+            if (apiRes.ok) {
+                const apiData = await apiRes.json();
+                if (apiData && apiData.settings) {
+                    data = apiData;
+                }
+            }
+        } catch (e) {
+            // Serverless API not available or static fallback
+        }
+
+        if (!data) {
+            const results = await Promise.all(DATA_FILES.map(loadJSON));
+            data = Object.fromEntries(DATA_FILES.map((name, i) => [name, results[i]]));
+        }
 
         applySimpleFields(data);
         renderServices(data);
