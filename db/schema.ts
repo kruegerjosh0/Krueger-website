@@ -10,7 +10,7 @@ export const siteSettings = pgTable("site_settings", {
   footerText: text("footer_text").notNull().default(""),
   heroHeadlineWhite: text("hero_headline_white").notNull().default("Quality Craftsmanship."),
   heroHeadlineYellow: text("hero_headline_yellow").notNull().default("Flawless Finishes."),
-  heroDescription: text("hero_description").notNull().default("Professional interior and exterior painting, drywall repair, and pressure washing across Washington County, West Bend, Campbellsport, and Kewaskum."),
+  heroDescription: text("hero_description").notNull().default("Professional interior and exterior painting, drywall repair, and pressure washing with quality craftsmanship and durable finishes."),
   heroPrimaryButton: text("hero_primary_button").notNull().default("Tap for Free Estimate"),
   heroSecondaryButton: text("hero_secondary_button").notNull().default("View Gallery"),
   servicesHeading: text("services_heading").notNull().default("What We Do"),
