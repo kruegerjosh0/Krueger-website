@@ -6,22 +6,79 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
-  - name: "gallery"
-    label: "Project Gallery"
+  - name: "sections"
+    label: "Website Sections"
+    description: "Edit each part of the website. Changes go live about a minute after you click Publish."
+    editor: {preview: false}
+    files:
+      - file: "data/settings.json"
+        label: "Logo & Business Info"
+        name: "settings"
+        fields:
+          - {label: "Logo", name: "logo", widget: "image", required: false, hint: "Shown as a small circle next to your business name at the top of every page. A square picture works best."}
+          - {label: "Business Name", name: "business_name", widget: "string", hint: "Shown next to the logo."}
+          - {label: "Phone Number", name: "phone", widget: "string", hint: "Used by the green Call Now button, e.g. 262-339-5822."}
+          - {label: "Facebook Page Link", name: "facebook_url", widget: "string", required: false, hint: "Full link to your Facebook page. Leave blank to hide the Facebook button."}
+          - {label: "Footer Text", name: "footer_text", widget: "string", hint: "Small print at the bottom of every page."}
+
+      - file: "data/hero.json"
+        label: "Top Banner (Headline)"
+        name: "hero"
+        fields:
+          - {label: "Headline – White Line", name: "headline_white", widget: "string"}
+          - {label: "Headline – Yellow Line", name: "headline_yellow", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Yellow Button Text", name: "primary_button", widget: "string", hint: "Jumps to the estimate form."}
+          - {label: "Outline Button Text", name: "secondary_button", widget: "string", hint: "Opens the Photo Gallery page."}
+
+      - file: "data/services.json"
+        label: "Services (What We Do)"
+        name: "services"
+        fields:
+          - {label: "Section Heading", name: "heading", widget: "string"}
+          - label: "Services"
+            label_singular: "Service"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Service Name", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+      - file: "data/estimate.json"
+        label: "Estimate Form"
+        name: "estimate"
+        fields:
+          - {label: "Section Heading", name: "heading", widget: "string"}
+          - {label: "Submit Button Text", name: "button_text", widget: "string"}
+
+  - name: "photos"
+    label: "Photo Gallery"
+    description: "Add, remove, and tag project photos. Categories marked 'Show on homepage' also appear in the Recent Projects section."
+    editor: {preview: false}
     files:
       - file: "data/gallery.json"
-        label: "Recent Projects"
+        label: "Project Photos"
         name: "gallery"
         fields:
+          - {label: "Homepage Section Heading", name: "homepage_heading", widget: "string"}
+          - {label: "Homepage Button Text", name: "homepage_button", widget: "string", hint: "Button under Recent Projects that opens the full Photo Gallery page."}
+          - {label: "Gallery Page Heading", name: "page_heading", widget: "string"}
+          - {label: "Gallery Page Intro", name: "page_intro", widget: "text", required: false}
           - label: "Categories"
+            label_singular: "Category"
             name: "categories"
             widget: "list"
+            summary: "{{fields.title}}"
             fields:
-              - {label: "Category Name", name: "title", widget: "string"}
+              - {label: "Category Name", name: "title", widget: "string", hint: "e.g. Kitchen Painting, Decks, Drywall"}
+              - {label: "Show on homepage", name: "show_on_homepage", widget: "boolean", default: true}
               - label: "Photos"
+                label_singular: "Photo"
                 name: "photos"
                 widget: "list"
+                summary: "{{fields.tag}} {{fields.image}}"
                 fields:
-                  - {label: "Image", name: "image", widget: "image"}
-                  - {label: "Description (alt text)", name: "alt", widget: "string"}
-                  - {label: "Tag (optional, e.g. BEFORE / AFTER)", name: "tag", widget: "string", required: false}
+                  - {label: "Photo", name: "image", widget: "image"}
+                  - {label: "Tag", name: "tag", widget: "string", required: false, hint: "Optional yellow label shown on the photo, e.g. BEFORE, AFTER, DURING (MUD & TAPE)."}
+                  - {label: "Short Description", name: "alt", widget: "string", required: false, hint: "Optional. Describes the photo for Google and screen readers, e.g. 'White kitchen cabinets after repaint'."}
