@@ -6,11 +6,22 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
-  - name: "pages"
-    label: "Pages"
+  - name: "gallery"
+    label: "Project Gallery"
     files:
-      - file: "index.html"
-        label: "Home Page"
-        name: "home"
+      - file: "data/gallery.json"
+        label: "Recent Projects"
+        name: "gallery"
         fields:
-          - {label: "Hero Title", name: "hero_title", widget: "string"}
+          - label: "Categories"
+            name: "categories"
+            widget: "list"
+            fields:
+              - {label: "Category Name", name: "title", widget: "string"}
+              - label: "Photos"
+                name: "photos"
+                widget: "list"
+                fields:
+                  - {label: "Image", name: "image", widget: "image"}
+                  - {label: "Description (alt text)", name: "alt", widget: "string"}
+                  - {label: "Tag (optional, e.g. BEFORE / AFTER)", name: "tag", widget: "string", required: false}

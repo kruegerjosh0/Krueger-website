@@ -156,18 +156,20 @@
                 <h3>Request an Estimate</h3>
                 <div class="underline"></div>
             </div>
-            <form action="#" method="POST">
+            <form name="estimate" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="estimate">
+                <p style="display:none;"><label>Leave blank: <input name="bot-field"></label></p>
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" placeholder="Your Name" required>
+                    <input type="text" class="form-control" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
                     <label>Phone</label>
-                    <input type="tel" class="form-control" placeholder="Your Phone Number" required>
+                    <input type="tel" class="form-control" name="phone" placeholder="Your Phone Number" required>
                 </div>
                 <div class="form-group">
                     <label>Project Details</label>
-                    <textarea class="form-control" placeholder="Describe your painting or drywall project..." required></textarea>
+                    <textarea name="details" class="form-control" placeholder="Describe your painting or drywall project..." required></textarea>
                 </div>
                 <button type="submit" class="btn-primary" style="max-width: 100%; border: none; cursor: pointer;">Submit Request</button>
             </form>
@@ -176,35 +178,63 @@
 
     <footer>
         <p>&copy; 2026 Krieger Painting DBA Krueger Painting. All rights reserved.</p>
-        <a href="/admin.html" class="admin-link">Admin Login</a>
+        <a href="/admin/" class="admin-link">Admin Login</a>
     </footer>
 
     <!-- Script to load dynamic images from CMS and handle login -->
     <script>
-        // Initialize Netlify Identity for Admin Login
+        // Netlify Identity handles invite/password links that land on the homepage,
+        // then sends the logged-in admin to the CMS
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on("init", user => {
                 if (!user) {
-                    window.netlifyIdentity.on("login", () => { document.location.reload(); });
+                    window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
                 }
             });
         }
 
-        // Function to dynamically load your gallery photos from the CMS data file
+        // Replace the static gallery with photos managed in the CMS (data/gallery.json).
+        // If no categories have been added yet, the static HTML gallery stays in place.
         async function loadCMSGallery() {
             try {
-                const response = await fetch('/data/gallery.json'); // CMS outputs image data here
-                if (response.ok) {
-                    const data = await response.json();
-                    // CMS Data will map into the #dynamic-gallery container here
-                    console.log("CMS Data loaded", data);
-                }
+                const response = await fetch('/data/gallery.json', { cache: 'no-cache' });
+                if (!response.ok) return;
+                const data = await response.json();
+                const categories = (data.categories || []).filter(c => c.photos && c.photos.length);
+                if (!categories.length) return;
+
+                const gallery = document.getElementById('dynamic-gallery');
+                gallery.replaceChildren();
+                categories.forEach(category => {
+                    const block = document.createElement('div');
+                    block.className = 'project-category';
+
+                    const header = document.createElement('div');
+                    header.className = 'category-header';
+                    header.textContent = category.title;
+                    block.appendChild(header);
+
+                    category.photos.forEach(photo => {
+                        if (photo.tag) {
+                            const tag = document.createElement('div');
+                            tag.className = 'tag';
+                            tag.textContent = photo.tag;
+                            block.appendChild(tag);
+                        }
+                        const img = document.createElement('img');
+                        img.src = photo.image;
+                        img.alt = photo.alt || category.title;
+                        img.className = 'gallery-img';
+                        img.loading = 'lazy';
+                        block.appendChild(img);
+                    });
+                    gallery.appendChild(block);
+                });
             } catch (error) {
                 console.log("Running in static fallback mode. Images are displaying from HTML structure.");
             }
         }
-        
-        // Execute dynamic gallery loader
+
         loadCMSGallery();
     </script>
 </body>
