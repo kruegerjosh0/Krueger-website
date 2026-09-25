@@ -3,311 +3,557 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krueger Painting | Professional Painting & Drywall Services</title>
-    <meta name="description" content="Professional interior and exterior painting, drywall repair, and pressure washing in Washington County, Wisconsin.">
-    
-    <!-- Netlify Identity Widget Script -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    
+    <title>Krueger Painting | Professional Painting & Drywall Kewaskum | West Bend WI</title>
+    <meta name="description" content="Professional residential interior painting, deck finishing, and flawless drywall and wall repairs serving West Bend, Kewaskum, and the surrounding Washington County area. Quality craftsmanship and finishes.">
     <style>
         /* --- BRANDING & RESET --- */
         :root {
-            --primary: #ffcc00; /* High-contrast construction gold */
-            --dark: #111111;    /* Deep black background */
-            --light: #ffffff;   /* Pure white text */
-            --grey: #1a1a1a;    /* Section background tint */
-            --card-bg: #242424; /* Elevated card surface */
+            --primary: #ffcc00; /* High-contrast Yellow */
+            --dark: #111111;    /* Deep Black background */
+            --light: #ffffff;   /* Pure White text */
+            --grey: #1a1a1a;    /* Section backgrounds */
+            --card-bg: #242424; /* Elevated container black */
             --text-muted: #aaaaaa;
-            --call-green: #2ecc71; /* Professional action green */
+            --call-green: #2ecc71; /* Professional Call Button Green */
+            --fb-blue: #1877f2;    /* Facebook Blue */
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             background-color: var(--dark);
             color: var(--light);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
         }
 
-        /* --- HEADER & NAVIGATION --- */
+        /* --- NAVIGATION --- */
         header {
             background-color: var(--dark);
-            border-bottom: 2px solid var(--primary);
-            padding: 1rem 2rem;
+            border-bottom: 3px solid var(--primary);
             position: sticky;
             top: 0;
             z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
+            padding: 0.8rem 2rem;
         }
 
-        .logo-area {
+        .logo-block {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 14px;
+            text-decoration: none;
         }
 
-        .logo-area img {
-            width: 50px;
-            height: 50px;
+        .logo-wrapper {
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             border: 2px solid var(--primary);
-            object-fit: cover;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
         }
 
-        .brand-title {
-            font-size: 1.25rem;
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.35); 
+        }
+
+        .logo-text {
             font-weight: 800;
+            font-size: 1.3rem;
             color: var(--primary);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         nav {
             display: flex;
-            gap: 1.5rem;
             align-items: center;
-            flex-wrap: wrap;
         }
 
         nav a {
             color: var(--light);
             text-decoration: none;
+            margin-left: 1.5rem;
             font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
             color: var(--primary);
         }
 
-        .nav-buttons {
-            display: flex;
-            gap: 0.75rem;
-        }
-
-        .btn-call {
+        .nav-call-btn {
             background-color: var(--call-green);
-            color: var(--dark);
-            padding: 0.5rem 1rem;
+            color: var(--light);
+            padding: 0.4rem 1rem;
             border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-flex;
+            font-weight: 700;
+            display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 6px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-right: 0.5rem;
         }
 
-        .btn-fb {
-            background-color: #1877f2;
+        .nav-call-btn:hover {
+            background-color: #27ae60;
             color: var(--light);
-            padding: 0.5rem 1rem;
+            transform: translateY(-1px);
+        }
+
+        /* FIXED: High-Visibility Facebook Nav Button styling */
+        .nav-fb-btn {
+            background-color: var(--fb-blue);
+            color: var(--light);
+            padding: 0.4rem 1rem;
             border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-flex;
+            font-weight: 700;
+            display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 6px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav-fb-btn:hover {
+            background-color: #145dbf;
+            color: var(--light);
+            transform: translateY(-1px);
         }
 
         /* --- HERO SECTION --- */
         .hero {
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
-            background: linear-gradient(rgba(17,17,17,0.9), rgba(17,17,17,0.9)), url('hero-bg.jpg') center/cover;
-            border-bottom: 1px solid #333;
+            background: linear-gradient(rgba(17, 17, 17, 0.85), rgba(17, 17, 17, 0.95)), url('Screenshot_20260517_145754_Facebook.jpg') center/cover no-repeat;
+            border-bottom: 1px solid #222;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
-            color: var(--primary);
+            font-size: 3rem;
+            font-weight: 900;
             margin-bottom: 1rem;
-            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 2rem auto;
+            margin-bottom: 2rem;
         }
 
-        /* --- GALLERY / PORTFOLIO SECTION --- */
-        .container {
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            background-color: #e6b800;
+        }
+
+        .hero-call-btn {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 0.8rem 2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+            display: inline-block;
+        }
+
+        .hero-call-btn:hover {
+            transform: translateY(-2px);
+            background-color: var(--primary);
+            color: var(--dark);
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 5rem 2rem;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 2rem;
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .gallery-grid {
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 0.5rem auto 0 auto;
+        }
+
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .gallery-card {
+        .service-card {
             background-color: var(--card-bg);
-            border: 1px solid #333;
+            padding: 2.5rem;
             border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.3s ease;
         }
 
-        .gallery-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-bottom: 2px solid var(--primary);
+        .service-card:hover {
+            transform: translateY(-5px);
         }
 
-        .card-content {
-            padding: 1.25rem;
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
         }
 
-        .card-tag {
+        .service-card p {
+            color: var(--text-muted);
+        }
+
+        /* --- PORTFOLIO SECTION --- */
+        .portfolio-section {
+            background-color: var(--grey);
+            padding: 5rem 2rem;
+        }
+
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-group {
+            margin-bottom: 4rem;
+        }
+
+        .category-heading {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-left: 10px;
+            border-left: 4px solid var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .workflow-step {
+            text-align: center;
+        }
+
+        .workflow-label {
+            display: inline-block;
             background-color: var(--primary);
             color: var(--dark);
-            font-size: 0.75rem;
-            font-weight: 800;
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
+            padding: 0.2rem 1rem;
+            font-weight: 700;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.5px;
         }
 
-        .card-content h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
         }
 
-        .card-content p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        .portfolio-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+            background-color: var(--dark);
+            border: 2px solid #333333;
+            aspect-ratio: 4 / 3;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+
+        .portfolio-img-wrapper:hover .portfolio-img {
+            transform: scale(1.04);
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #333333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--dark);
+            border: 1px solid #444444;
+            color: var(--light);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #e6b800;
         }
 
         /* --- FOOTER --- */
         footer {
-            background-color: var(--grey);
-            border-top: 1px solid #333;
+            background-color: var(--dark);
             text-align: center;
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-        }
-
-        footer p {
+            padding: 2rem;
+            border-top: 1px solid #222;
             color: var(--text-muted);
-            margin-bottom: 1rem;
             font-size: 0.9rem;
         }
 
-        .admin-link {
+        /* FIXED: Footer Facebook link styling */
+        .footer-fb-link {
             color: var(--primary);
             text-decoration: none;
             font-weight: bold;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        .footer-fb-link:hover {
+            text-decoration: underline;
         }
 
-        .admin-link:hover {
-            text-decoration: underline;
+        /* --- RESPONSIVE MOBILE TWEAKS --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.25rem; }
+            .nav-container { flex-direction: column; gap: 1rem; text-align: center; }
+            nav { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+            nav a { margin: 0 0.5rem; }
+            .nav-call-btn, .nav-fb-btn { margin-top: 0.5rem; }
+            .hero-buttons { flex-direction: column; gap: 1rem; }
+            .workflow-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .logo-wrapper { width: 55px; height: 55px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navigation -->
     <header>
-        <div class="logo-area">
-            <img src="logo.jpg" alt="Krueger Painting Logo">
-            <span class="brand-title">Krueger Painting</span>
+        <div class="nav-container">
+            <a href="#" class="logo-block">
+                <div class="logo-wrapper">
+                    <img src="Screenshot_20260517_162112_Photos.jpg" alt="Krueger Painting Logo" class="logo-image">
+                </div>
+                <span class="logo-text">KRUEGER PAINTING</span>
+            </a>
+            <nav>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Our Work</a>
+                <a href="#contact">Request Estimate</a>
+                <a href="tel:262-443-1199" class="nav-call-btn">
+                    <span>📞</span> Call Now
+                </a>
+                <a href="https://www.facebook.com/share/1AxuAQvRQN/" target="_blank" class="nav-fb-btn">
+                    <span>👍</span> Facebook
+                </a>
+            </nav>
         </div>
-        <nav>
-            <a href="#services">Services</a>
-            <a href="#work">Our Work</a>
-            <div class="nav-buttons">
-                <a href="tel:2623395822" class="btn-call">📞 Call Now</a>
-                <a href="https://facebook.com" target="_blank" class="btn-fb">👍 Facebook</a>
-            </div>
-        </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <h1>Quality Craftsmanship & Expert Finishes</h1>
-        <p>Serving Washington County, Wisconsin with professional interior and exterior painting, drywall finishing, and pressure washing.</p>
-    </section>
-
-    <!-- Photo Gallery Section -->
-    <main class="container" id="work">
-        <h2 class="section-title">Project Gallery</h2>
-        
-        <div class="gallery-grid">
-            <!-- Project 1 -->
-            <div class="gallery-card">
-                <img src="cabinet-refinish.jpg" alt="Kitchen Cabinet Refinishing">
-                <div class="card-content">
-                    <span class="card-tag">Interior Finish</span>
-                    <h3>Kitchen Cabinet Refinishing</h3>
-                    <p>Sprayed with Sherwin-Williams Emerald urethane enamel for a factory-smooth, durable finish.</p>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="g-card gallery-card">
-                <img src="drywall-repair.jpg" alt="Drywall Mud and Tape Stage">
-                <div class="card-content">
-                    <span class="card-tag">During (Mud & Tape)</span>
-                    <h3>Drywall Layering & Taping</h3>
-                    <p>Professional tape compound layering and structural wall work stage prior to sanding.</p>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="gallery-card">
-                <img src="smooth-wall.jpg" alt="Smooth Sanded Plaster Finish">
-                <div class="card-content">
-                    <span class="card-tag">After (Smooth Finish)</span>
-                    <h3>Flawless Plaster & Paint Prep</h3>
-                    <p>Flawless smooth sanded drywall finish fully primed and ready for top coats.</p>
-                </div>
+        <div class="hero-content">
+            <h1>Quality Craftsmanship. <br><span>Flawless Finishes.</span></h1>
+            <p>Professional interior & exterior painting and drywall updates tailored to your residential projects.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="cta-btn">Get A Free Estimate</a>
+                <a href="tel:262-443-1199" class="hero-call-btn">Call Us Directly</a>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Footer -->
+    <section id="services" class="services">
+        <h2 class="section-title">What We Do</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Interior Painting</h3>
+                <p>Bringing fresh, durable color to your rooms with sharp, perfectly straight edges around your ceilings, doors, and floorboards. Everything is thoroughly taped and protected before a brush even touches the wall.</p>
+            </div>
+            <div class="service-card">
+                <h3>Decks & Exterior Finishing</h3>
+                <p>Deep cleaning, power washing, and weather-proofing your outdoor structures. We seal and stain decks to protect them from changing seasons and heavy foot traffic.</p>
+            </div>
+            <div class="service-card">
+                <h3>Wall Repair & Smoothing</h3>
+                <p>Fixing structural eyesores before applying paint. We repair drywall damage, patch up holes, hide stress cracks, and smooth out uneven surfaces so your walls look completely flawless and seamless.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <div class="portfolio-container">
+            <h2 class="section-title">Our Recent Projects</h2>
+            
+            <div class="category-group">
+                <h3 class="category-heading">Interior Transformations</h3>
+                <div class="gallery-container">
+                    <div class="portfolio-img-wrapper"><img src="Screenshot_20260517_145726_Facebook.jpg" alt="Interior trim and wall refresh" class="portfolio-img" loading="lazy"></div>
+                    <div class="portfolio-img-wrapper"><img src="Screenshot_20260517_145728_Facebook.jpg" alt="High ceiling interior job layout" class="portfolio-img" loading="lazy"></div>
+                    <div class="portfolio-img-wrapper"><img src="Screenshot_20260517_145730_Facebook.jpg" alt="Interior accent wall work completed" class="portfolio-img" loading="lazy"></div>
+                </div>
+            </div>
+
+            <div class="category-group">
+                <h3 class="category-heading">Drywall & Wall Repairs</h3>
+                <div class="workflow-grid">
+                    <div class="workflow-step">
+                        <span class="workflow-label">Before</span>
+                        <div class="portfolio-img-wrapper"><img src="Screenshot_20260517_145742_Facebook.jpg" alt="Damaged wall structural framing open area before repair" class="portfolio-img" loading="lazy"></div>
+                    </div>
+                    <div class="workflow-step">
+                        <span class="workflow-label">During (Mud & Tape)</span>
+                        <div class="portfolio-img-wrapper"><img src="Screenshot_20260517_145746_Facebook.jpg" alt="Drywall tape compound layering structural wall work stage" class="portfolio-img" loading="lazy"></div>
+                    </div>
+                    <div class="workflow-step">
+                        <span class="workflow-label">After (Smooth Finish)</span>
+                        <div class="portfolio-img-wrapper"><img src="Screenshot_20260517_145752_Facebook.jpg" alt="Flawless smooth sanded plaster drywall finish ready for paint" class="portfolio-img" loading="lazy"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-group">
+                <h3 class="category-heading">Decks & Exterior Finishes</h3>
+                <div class="gallery-container">
+                    <a href="https://www.facebook.com/share/1AxuAQvRQN/" target="_blank" class="portfolio-img-wrapper">
+                        <img src="Screenshot_20260517_145754_Facebook.jpg" alt="Premium residential deck stain surface - Krueger Painting Facebook Showcase" class="portfolio-img" loading="lazy">
+                    </a>
+                    <div class="portfolio-img-wrapper"><img src="Screenshot_20260517_145756_Facebook.jpg" alt="Completed exterior restoration project" class="portfolio-img" loading="lazy"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Request An Estimate</h2>
+        <form class="contact-form" action="https://formspree.io/f/xvzyorqq" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your full name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+            </div>
+            <div class="form-group">
+                <label for="details">Project Details</label>
+                <textarea id="details" name="details" rows="5" required placeholder="Describe what you need painted or repaired..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </section>
+
     <footer>
-        <p>&copy; 2026 Krieger Painting DBA Krueger Painting. All rights reserved.</p>
-        <p><a href="/admin.html" class="admin-link">Admin Login</a></p>
+        <p>&copy; 2026 Krueger Painting. All rights reserved.</p>
+        <p><a href="https://www.facebook.com/share/1AxuAQvRQN/" target="_blank" class="footer-fb-link">Follow us on Facebook to see more projects</a></p>
     </footer>
 
-    <!-- Netlify Identity Initialization Script -->
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.reload();
-            });
-          }
-        });
-      }
-    </script>
 </body>
 </html>
