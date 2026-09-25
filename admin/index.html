@@ -506,10 +506,6 @@
                             <label>Facebook Page Link (Leave blank to hide button)</label>
                             <input type="url" id="input-facebook" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label>Footer Text (Small print at bottom of every page)</label>
-                            <input type="text" id="input-footer" class="form-control" required>
-                        </div>
 
                         <button type="submit" class="btn-upload-action" id="btn-save-settings">Save Business Info</button>
                     </form>
@@ -903,8 +899,7 @@
             function renderSettingsTab() {
                 document.getElementById("input-business-name").value = siteData.settings?.business_name || "Krueger Painting";
                 document.getElementById("input-phone").value = siteData.settings?.phone || "262-443-1199";
-                document.getElementById("input-facebook").value = siteData.settings?.facebook_url || "https://www.facebook.com/share/1AxuAQvRQN/";
-                document.getElementById("input-footer").value = siteData.settings?.footer_text || "© 2026 Krieger Painting DBA Krueger Painting. All rights reserved.";
+                document.getElementById("input-facebook").value = siteData.settings?.facebook_url || "https://www.facebook.com/share/1EySXfm7FM/";
             }
 
             document.getElementById("settings-form").addEventListener("submit", async (e) => {
@@ -916,8 +911,7 @@
                 const updated = {
                     business_name: document.getElementById("input-business-name").value.trim(),
                     phone: document.getElementById("input-phone").value.trim(),
-                    facebook_url: document.getElementById("input-facebook").value.trim(),
-                    footer_text: document.getElementById("input-footer").value.trim()
+                    facebook_url: document.getElementById("input-facebook").value.trim()
                 };
 
                 try {

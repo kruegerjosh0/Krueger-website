@@ -11,12 +11,11 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <!-- Text and images marked with data-cms-* are editable from the admin page (/admin/) -->
     <header>
         <div class="logo-row">
             <a href="/">
                 <div class="logo-circle">
-                    <img src="" alt="Logo" class="logo-img" data-cms-src="settings.logo" hidden>
+                    <img src="" alt="Krueger Painting logo" class="logo-img" data-cms-src="settings.logo" hidden>
                     <div class="logo-fallback" aria-label="Krueger Painting">
                         <span class="logo-monogram">KP</span>
                     </div>
@@ -30,17 +29,17 @@
             <a href="#estimate">Request Estimate</a>
         </div>
         <div class="action-buttons">
-            <a href="tel:262-443-1199" class="btn-call" data-cms-tel="settings.phone">Call Now</a>
-            <a href="https://www.facebook.com/share/1AxuAQvRQN/" target="_blank" rel="noopener" class="btn-fb" data-cms-href="settings.facebook_url">Facebook</a>
+            <a href="tel:262-443-1199" class="btn-call">Call Now</a>
+            <a href="https://www.facebook.com/share/1EySXfm7FM/" target="_blank" rel="noopener" class="btn-fb">Facebook</a>
         </div>
     </header>
 
     <section class="hero">
-        <h2><span data-cms="hero.headline_white" class="hero-white">Quality Craftsmanship.</span><br><span data-cms="hero.headline_yellow">Flawless Finishes.</span></h2>
-        <p data-cms="hero.description">Professional interior and exterior painting, drywall repair, and pressure washing across Washington County, West Bend, Campbellsport, and Kewaskum.</p>
+        <h2><span class="hero-white">Quality Craftsmanship.</span><br><span class="hero-yellow">Flawless Finishes.</span></h2>
+        <p>Professional interior and exterior painting, drywall repair, and pressure washing across Washington County, West Bend, Campbellsport, and Kewaskum.</p>
         <div class="hero-btns">
-            <a href="#estimate" class="btn-primary" data-cms="hero.primary_button">Tap for Free Estimate</a>
-            <a href="/gallery/" class="btn-secondary" data-cms="hero.secondary_button">View Gallery</a>
+            <a href="#estimate" class="btn-primary">Tap for Free Estimate</a>
+            <a href="/gallery/" class="btn-secondary">View Gallery</a>
         </div>
     </section>
 
@@ -51,7 +50,7 @@
 
     <section id="services" class="container">
         <div class="section-title">
-            <h3 data-cms="services.heading">What We Do</h3>
+            <h3>What We Do</h3>
             <div class="underline"></div>
         </div>
 
@@ -73,22 +72,21 @@
 
     <section id="work" class="container">
         <div class="section-title">
-            <h3 data-cms="gallery.homepage_heading">Our Recent Projects</h3>
+            <h3>Our Recent Projects</h3>
             <div class="underline"></div>
         </div>
 
-        <!-- Filled from the Photo Gallery in the admin page -->
         <div id="dynamic-gallery"></div>
 
         <div style="text-align: center; margin-top: 30px;">
-            <a href="/gallery/" class="btn-primary" style="max-width: 100%;" data-cms="gallery.homepage_button">View Full Photo Library</a>
+            <a href="/gallery/" class="btn-primary" style="max-width: 100%;">View Full Photo Library</a>
         </div>
     </section>
 
     <section id="estimate" class="estimate-section">
         <div class="container" style="padding-top: 20px;">
             <div class="section-title">
-                <h3 data-cms="estimate.heading">Request an Estimate</h3>
+                <h3>Request an Estimate</h3>
                 <div class="underline"></div>
             </div>
             <form action="https://formspree.io/f/xvzyorqq" method="POST">
@@ -104,7 +102,7 @@
                     <label>Project Details</label>
                     <textarea name="details" class="form-control" placeholder="Describe your painting or drywall project..." required></textarea>
                 </div>
-                <button type="submit" class="btn-primary" style="max-width: 100%; border: none; cursor: pointer;" data-cms="estimate.button_text">Submit Request</button>
+                <button type="submit" class="btn-primary" style="max-width: 100%; border: none; cursor: pointer;">Submit Request</button>
             </form>
         </div>
     </section>
@@ -112,8 +110,6 @@
     <footer>
         <p class="footer-address"><strong>Mailing Address:</strong> N630 Moraine Dr., Campbellsport, WI 53010</p>
         <p class="footer-phone"><strong>Phone:</strong> <a href="tel:262-443-1199">262-443-1199</a></p>
-        <p class="footer-service-areas"><strong>Service Areas:</strong> Washington County, West Bend, Campbellsport, Kewaskum</p>
-        <p data-cms="settings.footer_text">&copy; 2026 Krieger Painting DBA Krueger Painting. All rights reserved.</p>
         <a href="/admin/" class="admin-link">Admin Login</a>
     </footer>
 
