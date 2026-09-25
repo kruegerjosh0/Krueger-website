@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krueger Painting | Admin Dashboard</title>
+    <link rel="stylesheet" href="https://identity.netlify.com/v1/netlify-identity-widget.css">
+    <style>
+        body { background-color: #111; color: #fff; font-family: sans-serif; text-align: center; padding: 5rem 2rem; }
+        h1 { color: #ffcc00; margin-bottom: 1rem; }
+        p { color: #aaa; margin-bottom: 2rem; }
+        .btn { background: #ffcc00; color: #111; padding: 0.8rem 1.5rem; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <div id="admin-app">
+        <h1>Krueger Painting Admin</h1>
+        <p>Please log in to manage your website gallery and settings.</p>
+        <div data-netlify-identity-menu></div>
+        <br><br>
+        <a href="/" class="btn">← Back to Public Website</a>
+    </div>
+
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.reload();
+            });
+          }
+        });
+      }
+    </script>
+</body>
+</html>
