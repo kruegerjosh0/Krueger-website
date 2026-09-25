@@ -4,92 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Krueger Painting | Professional Painting</title>
-    
-    <!-- Netlify Identity Widget Script -->
+
+    <!-- Netlify Identity Widget Script (used by the admin login) -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    
-    <style>
-        :root {
-            --primary: #ffcc00;
-            --bg: #111111;
-            --text: #ffffff;
-            --card-bg: #1a1a1a;
-        }
-        
-        body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
-        
-        /* HEADER */
-        header { text-align: center; padding: 15px 10px; border-bottom: 1px solid #333; }
-        .logo-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px; }
-        .logo-row img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--primary); object-fit: cover; }
-        .logo-row h1 { font-size: 1.1rem; color: var(--primary); margin: 0; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 800;}
-        .nav-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; font-size: 0.9rem; font-weight: 700; }
-        .nav-links a { color: var(--text); text-decoration: none; text-transform: capitalize; }
-        .action-buttons { display: flex; justify-content: center; gap: 10px; }
-        .btn-call { background: #2ecc71; color: #000; padding: 6px 20px; text-decoration: none; border-radius: 4px; font-weight: 800; font-size: 0.9rem;}
-        .btn-fb { background: #1877f2; color: #fff; padding: 6px 20px; text-decoration: none; border-radius: 4px; font-weight: 800; font-size: 0.9rem;}
-        
-        /* HERO */
-        .hero { text-align: center; padding: 50px 20px; border-bottom: 1px solid #222;}
-        .hero h2 { font-size: 1.8rem; margin: 0 0 15px 0; font-weight: 900; line-height: 1.3; }
-        .hero h2 span { color: var(--primary); display: block; }
-        .hero p { color: #aaaaaa; font-size: 0.95rem; max-width: 500px; margin: 0 auto 30px auto; }
-        .hero-btns { display: flex; flex-direction: column; gap: 15px; align-items: center; }
-        .btn-primary { background: var(--primary); color: #000; padding: 12px 20px; text-decoration: none; font-weight: 900; width: 100%; max-width: 280px; border-radius: 4px; text-transform: uppercase; font-size: 0.9rem; display: block; box-sizing: border-box; text-align: center;}
-        .btn-secondary { background: transparent; color: var(--primary); border: 2px solid var(--primary); padding: 12px 20px; text-decoration: none; font-weight: 900; width: 100%; max-width: 280px; border-radius: 4px; text-transform: uppercase; font-size: 0.9rem; display: block; box-sizing: border-box; text-align: center;}
-        
-        /* SECTIONS */
-        .container { padding: 0 20px 40px 20px; max-width: 800px; margin: 0 auto; }
-        .section-title { text-align: center; margin: 50px 0 30px 0; }
-        .section-title h3 { font-size: 1.4rem; text-transform: uppercase; margin: 0; font-weight: 900; letter-spacing: 0.5px;}
-        .section-title .underline { width: 50px; height: 3px; background: var(--primary); margin: 10px auto 0 auto; }
-        
-        /* SERVICES */
-        .service-card { border: 2px solid var(--primary); background: var(--card-bg); padding: 20px; margin-bottom: 20px; border-radius: 6px;}
-        .service-card h4 { color: var(--primary); margin: 0 0 10px 0; font-size: 1.1rem; text-transform: uppercase; font-weight: 800;}
-        .service-card p { margin: 0; color: #aaaaaa; font-size: 0.9rem; }
-        
-        /* GALLERY */
-        .project-category { margin-bottom: 40px; }
-        .category-header { border-left: 4px solid var(--primary); padding-left: 10px; color: var(--primary); font-weight: 900; margin-bottom: 20px; text-transform: uppercase; font-size: 1rem; letter-spacing: 0.5px;}
-        .gallery-img { width: 100%; height: auto; display: block; margin-bottom: 10px; border: 1px solid #333; background-color: #222; }
-        .tag { background: var(--primary); color: #000; text-align: center; font-weight: 900; padding: 6px 12px; margin: 15px auto; width: max-content; font-size: 0.8rem; border-radius: 3px; }
-        
-        /* ESTIMATE FORM */
-        .estimate-section { background-color: #151515; padding: 1px 0 40px 0; border-top: 1px solid #333;}
-        .form-group { margin-bottom: 20px; }
-        .form-group label { color: var(--primary); display: block; margin-bottom: 8px; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; }
-        .form-control { width: 100%; box-sizing: border-box; padding: 12px; background: #202020; border: 1px solid #444; color: #fff; font-size: 1rem; border-radius: 4px;}
-        textarea.form-control { height: 120px; resize: vertical; }
-        
-        /* FOOTER */
-        footer { text-align: center; padding: 40px 20px; font-size: 0.85rem; color: #666; border-top: 1px solid #333; background: var(--bg);}
-        .admin-link { color: var(--primary); text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;}
-    </style>
+
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <header>
         <div class="logo-row">
-            <img src="logo.jpg" alt="Logo">
-            <h1>Krueger Painting</h1>
+            <a href="/">
+                <div class="logo-circle">
+                    <img src="" alt="Krueger Painting logo" class="logo-img" data-cms-src="settings.logo" hidden>
+                    <div class="logo-fallback" aria-label="Krueger Painting">
+                        <span class="logo-monogram">KP</span>
+                    </div>
+                </div>
+                <h1 data-cms="settings.business_name">Krueger Painting</h1>
+            </a>
         </div>
         <div class="nav-links">
             <a href="#services">Services</a>
-            <a href="#work">Our Work</a>
+            <a href="/gallery/">Gallery</a>
             <a href="#estimate">Request Estimate</a>
         </div>
         <div class="action-buttons">
-            <a href="tel:2623395822" class="btn-call">Call Now</a>
-            <a href="https://facebook.com" target="_blank" class="btn-fb">Facebook</a>
+            <a href="tel:262-443-1199" class="btn-call" aria-label="Call Krueger Painting">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                <span>Call Now</span>
+            </a>
+            <a href="https://www.facebook.com/share/1EySXfm7FM/" target="_blank" rel="noopener" class="btn-fb" aria-label="Krueger Painting on Facebook">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                <span>Facebook</span>
+            </a>
         </div>
     </header>
 
     <section class="hero">
-        <h2>Quality Craftsmanship.<br><span>Flawless Finishes.</span></h2>
-        <p>Professional interior and exterior painting, drywall repair, and pressure washing across Washington County, Wisconsin.</p>
+        <h2><span class="hero-white">Quality Craftsmanship.</span><br><span class="hero-yellow">Flawless Finishes.</span></h2>
+        <p>Professional interior and exterior painting, drywall repair, and pressure washing with quality craftsmanship and durable finishes.</p>
         <div class="hero-btns">
-            <a href="#estimate" class="btn-primary">Get Free Estimate</a>
-            <a href="#work" class="btn-secondary">View Gallery</a>
+            <a href="#estimate" class="btn-primary">Tap for Free Estimate</a>
+            <a href="/gallery/" class="btn-secondary">View Gallery</a>
         </div>
     </section>
 
@@ -98,18 +58,20 @@
             <h3>What We Do</h3>
             <div class="underline"></div>
         </div>
-        
-        <div class="service-card">
-            <h4>Interior Painting</h4>
-            <p>Professional surface preparation, priming, and precision painting using premium finishes like Sherwin-Williams Emerald enamel for doors, trim, walls, and ceilings.</p>
-        </div>
-        <div class="service-card">
-            <h4>Decks & Exterior Finishing</h4>
-            <p>Comprehensive exterior protection including wood staining, deck restoration, sealing, and pressure washing to withstand Wisconsin weather elements.</p>
-        </div>
-        <div class="service-card">
-            <h4>Wall Repair & Drywall</h4>
-            <p>Expert drywall hanging, professional tape compound layering, mudding, and smooth plaster sanding to establish seamless surfaces ready for paint.</p>
+
+        <div id="services-list">
+            <div class="service-card">
+                <h4>Interior Painting</h4>
+                <p>Professional surface preparation, priming, and precision painting using premium finishes like Sherwin-Williams Emerald enamel for doors, trim, walls, and ceilings.</p>
+            </div>
+            <div class="service-card">
+                <h4>Decks &amp; Exterior Finishing</h4>
+                <p>Comprehensive exterior protection including wood staining, deck restoration, sealing, and pressure washing to withstand Wisconsin weather elements.</p>
+            </div>
+            <div class="service-card">
+                <h4>Wall Repair &amp; Drywall</h4>
+                <p>Expert drywall hanging, professional tape compound layering, mudding, and smooth plaster sanding to establish seamless surfaces ready for paint.</p>
+            </div>
         </div>
     </section>
 
@@ -119,34 +81,10 @@
             <div class="underline"></div>
         </div>
 
-        <!-- This ID container allows your CMS to inject photos dynamically -->
-        <div id="dynamic-gallery">
-            
-            <div class="project-category">
-                <div class="category-header">Kitchen Painting</div>
-                <img src="kitchen-1.jpg" alt="Kitchen Painting 1" class="gallery-img">
-                <img src="kitchen-2.jpg" alt="Kitchen Painting 2" class="gallery-img">
-                <img src="kitchen-3.jpg" alt="Kitchen Painting 3" class="gallery-img">
-            </div>
-
-            <div class="project-category">
-                <div class="category-header">Drywall & Wall Repair</div>
-                <div class="tag">DURING (MUD & TAPE)</div>
-                <img src="drywall-mud.jpg" alt="Mud and Tape" class="gallery-img">
-                <div class="tag">AFTER (SMOOTH FINISH)</div>
-                <img src="drywall-smooth.jpg" alt="Smooth Finish" class="gallery-img">
-            </div>
-
-            <div class="project-category">
-                <div class="category-header">Decks & Exterior Finishes</div>
-                <img src="deck-1.jpg" alt="Deck 1" class="gallery-img">
-                <img src="deck-2.jpg" alt="Deck 2" class="gallery-img">
-            </div>
-            
-        </div>
+        <div id="dynamic-gallery"></div>
 
         <div style="text-align: center; margin-top: 30px;">
-            <a href="#" class="btn-primary" style="max-width: 100%;">View Full Photo Library</a>
+            <a href="/gallery/" class="btn-primary" style="max-width: 100%;">View Full Photo Library</a>
         </div>
     </section>
 
@@ -156,18 +94,18 @@
                 <h3>Request an Estimate</h3>
                 <div class="underline"></div>
             </div>
-            <form action="#" method="POST">
+            <form action="https://formspree.io/f/xvzyorqq" method="POST">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" placeholder="Your Name" required>
+                    <input type="text" class="form-control" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
                     <label>Phone</label>
-                    <input type="tel" class="form-control" placeholder="Your Phone Number" required>
+                    <input type="tel" class="form-control" name="phone" placeholder="Your Phone Number" required>
                 </div>
                 <div class="form-group">
                     <label>Project Details</label>
-                    <textarea class="form-control" placeholder="Describe your painting or drywall project..." required></textarea>
+                    <textarea name="details" class="form-control" placeholder="Describe your painting or drywall project..." required></textarea>
                 </div>
                 <button type="submit" class="btn-primary" style="max-width: 100%; border: none; cursor: pointer;">Submit Request</button>
             </form>
@@ -175,37 +113,11 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Krieger Painting DBA Krueger Painting. All rights reserved.</p>
-        <a href="/admin.html" class="admin-link">Admin Login</a>
+        <p class="footer-address"><strong>Mailing Address:</strong> N630 Moraine Dr., Campbellsport, WI 53010</p>
+        <p class="footer-phone"><strong>Phone:</strong> <a href="tel:262-443-1199">262-443-1199</a></p>
+        <a href="/admin/" class="admin-link">Admin Login</a>
     </footer>
 
-    <!-- Script to load dynamic images from CMS and handle login -->
-    <script>
-        // Initialize Netlify Identity for Admin Login
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => { document.location.reload(); });
-                }
-            });
-        }
-
-        // Function to dynamically load your gallery photos from the CMS data file
-        async function loadCMSGallery() {
-            try {
-                const response = await fetch('/data/gallery.json'); // CMS outputs image data here
-                if (response.ok) {
-                    const data = await response.json();
-                    // CMS Data will map into the #dynamic-gallery container here
-                    console.log("CMS Data loaded", data);
-                }
-            } catch (error) {
-                console.log("Running in static fallback mode. Images are displaying from HTML structure.");
-            }
-        }
-        
-        // Execute dynamic gallery loader
-        loadCMSGallery();
-    </script>
+    <script src="/js/site.js"></script>
 </body>
 </html>
